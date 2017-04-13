@@ -1,0 +1,40 @@
+Programm Dokumentation: Wetterstation
+
+(c) 2017 Thomas Fabian
+
+
+Aufruffolgen
+
+index.php
+	GetDataFromRRD_vX.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
+		makeDataFilesFromLastupdate_vX.py
+	generateStatisticTable_v1.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
+
+Weitere Informationen
+	Erzeugen der Grafiken
+		werden alle via crontab job zyklisch (stündlich/täglich) generiert und dem Web-Server im report Verzeichnis bereitgestellt
+
+	Messwerte erfassen und in RRD ablegen
+		/media/pi/HDD/data/TFN_recweather_vX.py
+		via crontab
+
+	Datenablage
+		/media/pi/HDD/data
+		wegen SD-Card Schonung auf externem Speichermedium (zweite SD Card wegen Geräuschbelästigung im Sz)
+
+	Datenbackups
+		auf interne SD-Card täglich via crontab Job (makeBackup_vX.py) falls externer Speicher crashed
+	Web-Seite
+		Nutzung eines Apache Web-Server
+		statische IP-Adresse
+		nur lokal erreichbar
+	weather report on request
+		5 min polling intervall für eingehende Anfrage-email via crontab gesteuert
+	mySQLdb
+		verwendet für die Speicherung von Min/Max Werten von vorbestimmten Messperioden
+		wird direkt im 5 min cron-Job vor Einlagerung der Daten in die RRD beschrieben 
+
+
+
+
+
