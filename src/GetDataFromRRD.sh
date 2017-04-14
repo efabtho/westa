@@ -11,7 +11,8 @@ uptime -p >> UserRQ_uptime.txt
 rrdtool lastupdate $RRD_PATH >> UserRQ_lastupdate.txt
 
 # Datei UserRQ_lastupdate.txt auswerten und in einzelne txt-Datenschnipsel ausgeben
-python /home/pi/westa/prod/src/makeDataFilesFromLastupdate.py
+#python /home/pi/westa/prod/src/makeDataFilesFromLastupdate.py
+python makeDataFilesFromLastupdate.py
 
 # Datenschnipsel rüberschieben auf Web-Server
 #sudo mv ./UserRQ_*.txt /var/www/html/reports/
