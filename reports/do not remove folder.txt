@@ -1,0 +1,1 @@
+because this is the temp folder for generating png files before moving them to web server
