@@ -28,7 +28,7 @@ def mailWeatherReport():
     Port          = config.get("mailConfig","Port")
 
     # export most recent rrd data set to txt files
-    subprocess.call("/home/pi/Projekt-WeSta/src/analyze/GetDataFromRRD_v2.sh")
+    subprocess.call("/var/www/html/CallGetDataFromRRD.sh")
 
     # import data sets into varables 
     fobj = open("/var/www/html/reports/UserRQ_timeStampOfValues.txt")
