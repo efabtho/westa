@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-# v10 TFN 170413 using ConfigParser for email account data access
-# v9  TFN 170408 continuing work on this
-# v8  TFN 170402 send html based weather report email to get rid of umlaut problems...
-# v6  TFN 170120 added txt file with long term statistic data
-# v6  TFN xxxxxx append png file to email
+# TFN 170417 adding html file with long term statistics
+# TFN 170413 using ConfigParser for email account data access
+# TFN 170408 continuing work on this
+# TFN 170402 send html based weather report email to get rid of umlaut problems...
+# TFN 170120 added txt file with long term statistic data
+# TFN xxxxxx append png file to email
 
 from __future__ import print_function
 
@@ -29,6 +30,9 @@ def mailWeatherReport():
 
     # export most recent rrd data set to txt files
     subprocess.call("/var/www/html/CallGetDataFromRRD.sh")
+
+    # generate html file with long term statistics (used as attachment to weather report email)
+    subprocess.call("/var/www/html/CallGenerateStatisticTable.sh")
 
     # import data sets into varables 
     fobj = open("/var/www/html/reports/UserRQ_timeStampOfValues.txt")
@@ -241,6 +245,11 @@ def mailWeatherReport():
     msgImage.add_header('Content-ID', '<image3>')
     msgRoot.attach(msgImage)
 
+    # attach html file with long term statistics
+    msgHTMLAttachment = MIMEText(file("/var/www/html/html/min-max-values_generated.html").read(),'html', 'utf-8')
+    msgHTMLAttachment.add_header('Content-Disposition','attachment', filename='min-max-values_generated.html')
+    msgRoot.attach(msgHTMLAttachment)
+    
     # Send the email (this example assumes SMTP authentication is required)
     smtp = smtplib.SMTP(SMTPHostName, Port)
 
