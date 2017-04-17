@@ -2,6 +2,12 @@
 
 # TFN 031216 v2 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
 
+# set WESTA_ACTIV_SRC variable (to get appropiate prod/dev sources)
+source /etc/environment
+
+# show source path to get it displayed under "debug info"
+sudo echo $WESTA_ACTIV_SRC > /var/www/html/reports/environment.txt
+
 RRD_PATH="/media/pi/HDD/data/weather2.rrd"
 
 # uptime in Datei schreiben
@@ -9,9 +15,6 @@ uptime -p >> UserRQ_uptime.txt
 
 # letzte abgespeicherte Daten aus der rrd DB in Datei schreiben
 rrdtool lastupdate $RRD_PATH >> UserRQ_lastupdate.txt
-
-# set WESTA_ACTIV_SRC variable (to get appropiate prod/dev sources)
-source /etc/environment
 
 # Datei UserRQ_lastupdate.txt auswerten und in einzelne txt-Datenschnipsel ausgeben
 python $WESTA_ACTIV_SRC'makeDataFilesFromLastupdate.py'
