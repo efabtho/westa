@@ -32,7 +32,7 @@ def mailWeatherReport():
     subprocess.call("/var/www/html/CallGetDataFromRRD.sh")
 
     # generate html file with long term statistics (used as attachment to weather report email)
-    subprocess.call("/var/www/html/CallGenerateStatisticTable.sh")
+    subprocess.call("/var/www/html/CallGenerateStatisticTable.sh weather_statistics.html MailModeActiv")
 
     # import data sets into varables 
     fobj = open("/var/www/html/reports/UserRQ_timeStampOfValues.txt")
@@ -246,8 +246,8 @@ def mailWeatherReport():
     msgRoot.attach(msgImage)
 
     # attach html file with long term statistics
-    msgHTMLAttachment = MIMEText(file("/var/www/html/html/min-max-values_generated.html").read(),'html', 'utf-8')
-    msgHTMLAttachment.add_header('Content-Disposition','attachment', filename='min-max-values_generated.html')
+    msgHTMLAttachment = MIMEText(file("/var/www/html/reports/weather_statistics.html").read(),'html', 'utf-8')
+    msgHTMLAttachment.add_header('Content-Disposition','attachment', filename='weather_statistics.html')
     msgRoot.attach(msgHTMLAttachment)
     
     # Send the email (this example assumes SMTP authentication is required)
