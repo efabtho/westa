@@ -32,7 +32,7 @@ def mailWeatherReport():
     subprocess.call("/var/www/html/CallGetDataFromRRD.sh")
 
     # generate html file with long term statistics (used as attachment to weather report email)
-    subprocess.call("/var/www/html/CallGenerateStatisticTable.sh weather_statistics.html MailModeActiv")
+    subprocess.call(["/var/www/html/CallGenerateStatisticTable.sh", "weather_statistics.html", "MailModeActiv"])
 
     # import data sets into varables 
     fobj = open("/var/www/html/reports/UserRQ_timeStampOfValues.txt")
