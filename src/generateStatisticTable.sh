@@ -9,6 +9,9 @@
 source /etc/environment
 
 # html Datentabelle aus SQL-DB erzeugen
+# 1. parameter: filename to be generated
+# 2. parameter: mode for generating html file
+
 python $WESTA_ACTIV_SRC'dumpStatistics.py' $1 $2
 
 if [ "$2" == "MailModeActiv" ]
