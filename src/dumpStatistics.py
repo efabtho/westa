@@ -18,9 +18,8 @@ from time import *
 
 
 def main():
-  #fileName = "min-max-values_generated.html"
   fileName = sys.argv[1]
-  MailMode = sys.argv[2]
+  GenMode = sys.argv[2]
 
   DEBUG = False
   TEST  = False
@@ -65,7 +64,7 @@ def main():
 
     print ("<body>", file=fh)
 
-    if MailMode == False:
+    if GenMode == "WebModeActiv":
       print ("  <h1>Historiendaten: Statistische Werte</h1>", file=fh)
       print ("  <ul>", file=fh)
       print ("    <li><a href=\"../index.php\">zurück zur Hauptseite</a></li>", file=fh)
