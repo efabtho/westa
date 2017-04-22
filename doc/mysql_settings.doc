@@ -1,0 +1,117 @@
+Tables_in_temps
+tbl_WeSta_values
+tbl_WeSta_values2
+Field	Type	Null	Key	Default	Extra
+Id	int(11)	NO	PRI	NULL	auto_increment
+Visible	char(1)	YES		J	
+DisplayOrder	int(11)	YES		NULL	
+Sensor	text	YES		NULL	
+Wert	decimal(6,1)	YES		NULL	
+Einheit	text	YES		NULL	
+Type	text	YES		NULL	
+Messzeitpunkt	text	YES		NULL	
+Periode	text	YES		NULL	
+Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
+46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	22-04-2017 19:18:39	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	22-04-2017 19:18:39	day
+49	N	0	AuÃŸentemperatur	4.5	Â°C	min	22-04-2017 06:28:28	day
+50	N	0	AuÃŸentemperatur	10.1	Â°C	max	22-04-2017 00:13:28	day
+141	N	0	Regen_Erkannt	1.0	Boolean	Flag	22-04-2017 01:18:12	day
+1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
+2	J	11	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	all time
+32	J	12	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	all time
+3	J	13	Luftdruck	986.0	hPa	min	23-02-2017 19:33:20	all time
+4	J	14	Luftdruck	1038.0	hPa	max	19-01-2017 22:24:26	all time
+5	J	15	Windgeschwindigkeit	30.5	km/h	max	05-03-2017 15:23:06	all time
+63	J	20	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	Januar
+64	J	20	AuÃŸentemperatur	6.6	Â°C	max	20-01-2017 13:03:34	Januar
+65	J	20	AuÃŸentemperatur	11.0	Â°C	MaxDelta	27-01-2017	Januar
+66	J	20	AuÃŸentemperatur	19.0	Anzahl	Frosttage	n/a	Januar
+67	J	20	AuÃŸentemperatur	6.0	Anzahl	Dauerfrosttage	n/a	Januar
+68	J	20	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Januar
+146	J	20	Regenfall	11.0	Anzahl	Regentage	n/a	Januar
+69	J	30	AuÃŸentemperatur	-5.9	Â°C	min	26-02-2017 16:39:25	Februar
+70	J	30	AuÃŸentemperatur	13.5	Â°C	max	27-02-2017 11:43:06	Februar
+71	J	30	AuÃŸentemperatur	7.4	Â°C	MaxDelta	28-02-2017	Februar
+72	J	30	AuÃŸentemperatur	12.0	Anzahl	Frosttage	n/a	Februar
+73	J	30	AuÃŸentemperatur	4.0	Anzahl	Dauerfrosttage	n/a	Februar
+74	J	30	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Februar
+147	J	30	Regenfall	16.0	Anzahl	Regentage	n/a	Februar
+75	J	40	AuÃŸentemperatur	-1.6	Â°C	min	13-03-2017 04:44:47	MÃ¤rz
+76	J	40	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	MÃ¤rz
+77	J	40	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	MÃ¤rz
+78	J	40	AuÃŸentemperatur	4.0	Anzahl	Frosttage	n/a	MÃ¤rz
+79	J	40	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	MÃ¤rz
+80	J	40	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	MÃ¤rz
+142	J	40	Regenfall	11.0	Anzahl	Regentage	n/a	MÃ¤rz
+81	J	50	AuÃŸentemperatur	-3.5	Â°C	min	20-04-2017 06:38:42	April
+82	J	50	AuÃŸentemperatur	21.9	Â°C	max	01-04-2017 14:13:22	April
+83	J	50	AuÃŸentemperatur	15.9	Â°C	MaxDelta	09-04-2017	April
+84	J	50	AuÃŸentemperatur	2.0	Anzahl	Frosttage	n/a	April
+85	J	50	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	April
+86	J	50	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	April
+144	J	50	Regenfall	8.0	Anzahl	Regentage	n/a	April
+87	J	60	AuÃŸentemperatur	100.0	Â°C	min	none	Mai
+88	J	60	AuÃŸentemperatur	-50.0	Â°C	max	none	Mai
+89	J	60	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Mai
+90	J	60	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Mai
+91	J	60	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Mai
+92	J	60	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Mai
+145	J	60	Regenfall	0.0	Anzahl	Regentage	n/a	Mai
+93	J	70	AuÃŸentemperatur	100.0	Â°C	min	none	Juni
+94	J	70	AuÃŸentemperatur	-50.0	Â°C	max	none	Juni
+95	J	70	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juni
+96	J	70	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Juni
+97	J	70	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Juni
+98	J	70	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Juni
+148	J	70	Regenfall	0.0	Anzahl	Regentage	n/a	Juni
+99	J	80	AuÃŸentemperatur	100.0	Â°C	min	none	Juli
+100	J	80	AuÃŸentemperatur	-50.0	Â°C	max	none	Juli
+101	J	80	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juli
+102	J	80	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Juli
+103	J	80	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Juli
+104	J	80	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Juli
+149	J	80	Regenfall	0.0	Anzahl	Regentage	n/a	Juli
+105	J	90	AuÃŸentemperatur	100.0	Â°C	min	none	August
+106	J	90	AuÃŸentemperatur	-50.0	Â°C	max	none	August
+107	J	90	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	August
+108	J	90	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	August
+109	J	90	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	August
+110	J	90	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	August
+150	J	90	Regenfall	0.0	Anzahl	Regentage	n/a	August
+111	J	100	AuÃŸentemperatur	100.0	Â°C	min	none	September
+112	J	100	AuÃŸentemperatur	-50.0	Â°C	max	none	September
+113	J	100	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	September
+114	J	100	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	September
+115	J	100	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	September
+116	J	100	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	September
+151	J	100	Regenfall	0.0	Anzahl	Regentage	n/a	September
+117	J	110	AuÃŸentemperatur	100.0	Â°C	min	none	Oktober
+118	J	110	AuÃŸentemperatur	-50.0	Â°C	max	none	Oktober
+119	J	110	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Oktober
+120	J	110	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Oktober
+121	J	110	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Oktober
+122	J	110	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Oktober
+152	J	110	Regenfall	0.0	Anzahl	Regentage	n/a	Oktober
+123	J	120	AuÃŸentemperatur	100.0	Â°C	min	none	November
+124	J	120	AuÃŸentemperatur	-50.0	Â°C	max	none	November
+125	J	120	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	November
+126	J	120	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	November
+127	J	120	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	November
+128	J	120	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	November
+153	J	120	Regenfall	0.0	Anzahl	Regentage	n/a	November
+129	J	130	AuÃŸentemperatur	100.0	Â°C	min	none	Dezember
+130	J	130	AuÃŸentemperatur	-50.0	Â°C	max	none	Dezember
+131	J	130	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Dezember
+132	J	130	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Dezember
+133	J	130	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Dezember
+134	J	130	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Dezember
+154	J	130	Regenfall	0.0	Anzahl	Regentage	n/a	Dezember
+6	J	200	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	2017
+7	J	200	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	2017
+33	J	200	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	2017
+34	J	200	AuÃŸentemperatur	37.0	Anzahl	Frosttage	n/a	2017
+35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
+54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
+143	J	200	Regenfall	46.0	Anzahl	Regentage	n/a	2017
