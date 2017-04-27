@@ -29,6 +29,7 @@ WESTA_SRC_PATH = "/home/pi/westa/prod/src/"
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Temp_Last7Days_v3.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Temp_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Temp_Last90Days_v2.sh >> $CRONLOG_PATH 2>&1
+0 0 * * * $WESTA_SRC_PATH/CreateChart_TempMinMaxAvg_SinceStart.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_WindSpeed_Last7Days_v3.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_WindSpeed_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_WindSpeed_Last90Days_v1.sh >> $CRONLOG_PATH 2>&1
