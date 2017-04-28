@@ -47,6 +47,7 @@ WESTA_SRC_PATH = "/home/pi/westa/prod/src/"
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_AirPressure_Last90Days_v1.sh >> $CRONLOG_PATH 2>&1
 2 0 * * * python $WESTA_SRC_PATH'maintainSQLdb.py' >> $CRONLOG_PATH 2>&1
 5 1 * * * python $WESTA_SRC_PATH'makeBackup.py' >> $CRONLOG_PATH 2>&1
+10 1 * * * $WESTA_SRC_PATH/CleanWestaLogfile.sh 
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Temp_Last24h_v3.sh >> $CRONLOG_PATH 2>&1
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Humidity_Last24h_v3.sh >> $CRONLOG_PATH 2>&1
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_WindSpeed_Last24h_v2.sh >> $CRONLOG_PATH 2>&1 
