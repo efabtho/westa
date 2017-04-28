@@ -2,6 +2,11 @@
 
 RRD_PATH="/media/pi/HDD/data/weather2.rrd"
 
+# set WESTA_ACTIV_SRC variable (to get appropiate prod/dev sources)
+source /etc/environment
+
+cd $WESTA_ACTIV_SRC
+
 rrdtool graph ../reports/TempMinMaxAvg_SinceStart.png \
   -s '20170101' -e 'now' \
   -w 1200 -h 600 -D \
