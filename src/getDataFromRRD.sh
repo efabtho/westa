@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TFN 010517 environment settings copied to txt file to be shown in debug menu
+# TFN 010517 environment settings and westa.log copied to web server to be shown in debug menu
 # TFN 031216 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
 
 # set path variables
@@ -8,6 +8,9 @@ source /etc/environment
 
 # show source path to get it displayed under "debug info"
 sudo cp /etc/environment /var/www/html/reports/environment.txt
+
+# copy log file to web server to get it displayed under "debug info"
+sudo cp /media/pi/HDD/log/CronOutput/westa.log /var/www/html/reports/westa.log
 
 # uptime in Datei schreiben
 uptime -p >> UserRQ_uptime.txt
