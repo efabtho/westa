@@ -13,10 +13,10 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	01-05-2017 10:18:25	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	01-05-2017 10:18:25	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	01-05-2017 11:34:27	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	01-05-2017 11:34:27	day
 49	N	0	AuÃŸentemperatur	5.3	Â°C	min	01-05-2017 05:58:08	day
-50	N	0	AuÃŸentemperatur	11.2	Â°C	max	01-05-2017 10:13:20	day
+50	N	0	AuÃŸentemperatur	14.5	Â°C	max	01-05-2017 11:28:33	day
 141	N	0	Regen_Erkannt	0.0	Boolean	Flag	none	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
 2	J	11	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	all time
@@ -53,7 +53,7 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 86	J	50	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	April
 144	J	50	Regenfall	12.0	Anzahl	Regentage	n/a	April
 87	J	60	AuÃŸentemperatur	5.3	Â°C	min	01-05-2017 05:58:08	Mai
-88	J	60	AuÃŸentemperatur	11.2	Â°C	max	01-05-2017 10:13:20	Mai
+88	J	60	AuÃŸentemperatur	14.5	Â°C	max	01-05-2017 11:28:33	Mai
 89	J	60	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Mai
 90	J	60	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Mai
 91	J	60	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Mai

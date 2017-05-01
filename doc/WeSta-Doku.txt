@@ -6,16 +6,16 @@ Programm Dokumentation: Wetterstation
 Aufruffolgen
 
 index.php
-	GetDataFromRRD_vX.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
-		makeDataFilesFromLastupdate_vX.py
-	generateStatisticTable_v1.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
+	getDataFromRRD.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
+		makeDataFilesFromLastupdate.py
+	generateStatisticTable.sh (Diese Datei benötigt root Rechte, die extra via /etc/sudoers zugeteilt werden muessen)
 
 Weitere Informationen
 	Erzeugen der Grafiken
 		werden alle via crontab job zyklisch (stündlich/täglich) generiert und dem Web-Server im report Verzeichnis bereitgestellt
 
 	Messwerte erfassen und in RRD ablegen
-		/media/pi/HDD/data/TFN_recweather_vX.py
+		/media/pi/HDD/data/recordWeatherData.py
 		via crontab
 
 	Datenablage
@@ -23,7 +23,7 @@ Weitere Informationen
 		wegen SD-Card Schonung auf externem Speichermedium (zweite SD Card wegen Geräuschbelästigung im Sz)
 
 	Datenbackups
-		auf interne SD-Card täglich via crontab Job (makeBackup_vX.py) falls externer Speicher crashed
+		auf interne SD-Card täglich via crontab Job (makeBackup.py) falls externer Speicher crashed
 	Web-Seite
 		Nutzung eines Apache Web-Server
 		statische IP-Adresse
