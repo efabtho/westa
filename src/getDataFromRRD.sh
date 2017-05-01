@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# TFN 031216 v2 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
+# TFN 010517 environment settings copied to txt file to be shown in debug menu
+# TFN 031216 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
 
-# set WESTA_ACTIV_SRC variable (to get appropiate prod/dev sources)
+# set path variables
 source /etc/environment
 
 # show source path to get it displayed under "debug info"
-sudo echo $WESTA_ACTIV_SRC > /var/www/html/reports/environment.txt
-
-RRD_PATH="/media/pi/HDD/data/weather2.rrd"
+sudo cp /etc/environment > /var/www/html/reports/environment.txt
 
 # uptime in Datei schreiben
 uptime -p >> UserRQ_uptime.txt

@@ -13,11 +13,11 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	30-04-2017 18:48:06	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	30-04-2017 18:48:06	day
-49	N	0	AuÃŸentemperatur	0.5	Â°C	min	30-04-2017 06:13:14	day
-50	N	0	AuÃŸentemperatur	16.4	Â°C	max	30-04-2017 13:48:10	day
-141	N	0	Regen_Erkannt	1.0	Boolean	Flag	30-04-2017 09:38:42	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	01-05-2017 09:43:08	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	01-05-2017 09:43:08	day
+49	N	0	AuÃŸentemperatur	5.3	Â°C	min	01-05-2017 05:58:08	day
+50	N	0	AuÃŸentemperatur	9.6	Â°C	max	01-05-2017 09:33:30	day
+141	N	0	Regen_Erkannt	0.0	Boolean	Flag	none	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
 2	J	11	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	all time
 32	J	12	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	all time
@@ -51,9 +51,9 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 84	J	50	AuÃŸentemperatur	5.0	Anzahl	Frosttage	n/a	April
 85	J	50	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	April
 86	J	50	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	April
-144	J	50	Regenfall	11.0	Anzahl	Regentage	n/a	April
-87	J	60	AuÃŸentemperatur	100.0	Â°C	min	none	Mai
-88	J	60	AuÃŸentemperatur	-50.0	Â°C	max	none	Mai
+144	J	50	Regenfall	12.0	Anzahl	Regentage	n/a	April
+87	J	60	AuÃŸentemperatur	5.3	Â°C	min	01-05-2017 05:58:08	Mai
+88	J	60	AuÃŸentemperatur	9.6	Â°C	max	01-05-2017 09:33:30	Mai
 89	J	60	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Mai
 90	J	60	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Mai
 91	J	60	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Mai
@@ -114,4 +114,4 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 34	J	200	AuÃŸentemperatur	40.0	Anzahl	Frosttage	n/a	2017
 35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
 54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
-143	J	200	Regenfall	49.0	Anzahl	Regentage	n/a	2017
+143	J	200	Regenfall	50.0	Anzahl	Regentage	n/a	2017

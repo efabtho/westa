@@ -1,8 +1,6 @@
 #!/bin/bash
 
-RRD_PATH="/media/pi/HDD/data/weather2.rrd"
-
-# set WESTA_ACTIV_SRC variable (to get appropiate prod/dev sources)
+# set path variables
 source /etc/environment
 
 cd $WESTA_ACTIV_SRC
