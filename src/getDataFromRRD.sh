@@ -7,7 +7,7 @@
 source /etc/environment
 
 # show source path to get it displayed under "debug info"
-sudo cp /etc/environment > /var/www/html/reports/environment.txt
+sudo cp /etc/environment /var/www/html/reports/environment.txt
 
 # uptime in Datei schreiben
 uptime -p >> UserRQ_uptime.txt
