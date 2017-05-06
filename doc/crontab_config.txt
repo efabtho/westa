@@ -36,9 +36,9 @@ WESTA_SRC_PATH = "/home/pi/westa/prod/src/"
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last7Days_v3.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last90Days_v2.sh >> $CRONLOG_PATH 2>&1
-0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Humidity_Last7Days_v4.sh >> $CRONLOG_PATH 2>&1
-0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Humidity_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
-0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Humidity_Last90Days_v2.sh >> $CRONLOG_PATH 2>&1
+0 0 * * * $WESTA_SRC_PATH/CreateChart_Humidity_Last7Days.sh >> $CRONLOG_PATH 2>&1
+0 0 * * * $WESTA_SRC_PATH/CreateChart_Humidity_Last30Days.sh >> $CRONLOG_PATH 2>&1
+0 0 * * * $WESTA_SRC_PATH/CreateChart_Humidity_Last90Days.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Rain_Last7Days_v3.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Rain_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
 0 0 * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Rain_Last90Days_v1.sh >> $CRONLOG_PATH 2>&1
@@ -48,7 +48,7 @@ WESTA_SRC_PATH = "/home/pi/westa/prod/src/"
 2 0 * * * python $WESTA_SRC_PATH'maintainSQLdb.py' >> $CRONLOG_PATH 2>&1
 5 1 * * * python $WESTA_SRC_PATH'makeBackup.py' >> $CRONLOG_PATH 2>&1
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Temp_Last24h_v3.sh >> $CRONLOG_PATH 2>&1
-0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Humidity_Last24h_v3.sh >> $CRONLOG_PATH 2>&1
+0 * * * * $WESTA_SRC_PATH/CreateChart_Humidity_Last24h.sh >> $CRONLOG_PATH 2>&1
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_WindSpeed_Last24h_v2.sh >> $CRONLOG_PATH 2>&1 
 0 * * * * /home/pi/Projekt-WeSta/src/analyze/CreateChart_Rain_Last24h_v2.sh >> $CRONLOG_PATH 2>&1 
 0 * * * *  $WESTA_SRC_PATH/CreateChart_AirPressure_Last24h.sh >> $CRONLOG_PATH 2>&1 
