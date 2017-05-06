@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TFN 170506 attached westa.log to mail
 # TFN 170417 adding html file with long term statistics
 # TFN 170413 using ConfigParser for email account data access
 # TFN 170408 continuing work on this
@@ -34,7 +35,7 @@ def mailWeatherReport():
     # generate html file with long term statistics (used as attachment to weather report email)
     subprocess.call(["/var/www/html/CallGenerateStatisticTable.sh", "weather_statistics.html", "MailModeActiv"])
 
-    # import data sets into varables 
+    # import above generated data sets into variables 
     fobj = open("/var/www/html/reports/UserRQ_timeStampOfValues.txt")
     for line in fobj:
         TimeStampOfValues =line.rstrip()
@@ -249,6 +250,11 @@ def mailWeatherReport():
     msgHTMLAttachment = MIMEText(file("/var/www/html/reports/weather_statistics.html").read(),'html', 'utf-8')
     msgHTMLAttachment.add_header('Content-Disposition','attachment', filename='weather_statistics.html')
     msgRoot.attach(msgHTMLAttachment)
+    
+    # attach text file with westa.log info 
+    msgTEXTAttachment = MIMEText(file("/var/www/html/reports/westa.log").read(),'plain', 'utf-8')
+    msgTEXTAttachment.add_header('Content-Disposition','attachment', filename='westa.log')
+    msgRoot.attach(msgTEXTAttachment)
     
     # Send the email (this example assumes SMTP authentication is required)
     smtp = smtplib.SMTP(SMTPHostName, Port)
