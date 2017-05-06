@@ -33,9 +33,9 @@ WESTA_SRC_PATH = "/home/pi/westa/prod/src/"
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_WindSpeed_Last7Days.sh >> $CRONLOG_PATH 2>&1
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_WindSpeed_Last30Days.sh >> $CRONLOG_PATH 2>&1
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_WindSpeed_Last90Days.sh >> $CRONLOG_PATH 2>&1
-7 0 * * *  /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last7Days_v3.sh >> $CRONLOG_PATH 2>&1
-7 0 * * *  /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last30Days_v2.sh >> $CRONLOG_PATH 2>&1
-7 0 * * *  /home/pi/Projekt-WeSta/src/analyze/CreateChart_TempMinMaxAvg_Last90Days_v2.sh >> $CRONLOG_PATH 2>&1
+7 0 * * *  $WESTA_SRC_PATH/CreateChart_TempMinMaxAvg_Last7Days.sh >> $CRONLOG_PATH 2>&1
+7 0 * * *  $WESTA_SRC_PATH/CreateChart_TempMinMaxAvg_Last30Days.sh >> $CRONLOG_PATH 2>&1
+7 0 * * *  $WESTA_SRC_PATH/CreateChart_TempMinMaxAvg_Last90Days.sh >> $CRONLOG_PATH 2>&1
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_Humidity_Last7Days.sh >> $CRONLOG_PATH 2>&1
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_Humidity_Last30Days.sh >> $CRONLOG_PATH 2>&1
 7 0 * * *  $WESTA_SRC_PATH/CreateChart_Humidity_Last90Days.sh >> $CRONLOG_PATH 2>&1
