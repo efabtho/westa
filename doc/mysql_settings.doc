@@ -13,14 +13,14 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	06-05-2017 16:13:01	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	06-05-2017 16:13:01	day
-49	N	0	AuÃŸentemperatur	8.2	Â°C	min	06-05-2017 00:04:19	day
-50	N	0	AuÃŸentemperatur	16.9	Â°C	max	06-05-2017 13:39:37	day
-141	N	0	Regen_Erkannt	0.0	Boolean	Flag	none	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	18-05-2017 20:43:19	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	18-05-2017 20:43:19	day
+49	N	0	AuÃŸentemperatur	15.4	Â°C	min	18-05-2017 02:18:26	day
+50	N	0	AuÃŸentemperatur	28.4	Â°C	max	18-05-2017 13:19:18	day
+141	N	0	Regen_Erkannt	1.0	Boolean	Flag	18-05-2017 17:18:14	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
-2	J	11	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	all time
-32	J	12	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	all time
+2	J	11	AuÃŸentemperatur	28.4	Â°C	max	18-05-2017 13:19:18	all time
+32	J	12	AuÃŸentemperatur	20.8	Â°C	MaxDelta	11-05-2017	all time
 3	J	13	Luftdruck	986.0	hPa	min	23-02-2017 19:33:20	all time
 4	J	14	Luftdruck	1038.0	hPa	max	19-01-2017 22:24:26	all time
 5	J	15	Windgeschwindigkeit	30.5	km/h	max	05-03-2017 15:23:06	all time
@@ -52,13 +52,13 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 85	J	50	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	April
 86	J	50	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	April
 144	J	50	Regenfall	12.0	Anzahl	Regentage	n/a	April
-87	J	60	AuÃŸentemperatur	5.3	Â°C	min	01-05-2017 05:58:08	Mai
-88	J	60	AuÃŸentemperatur	18.6	Â°C	max	03-05-2017 12:48:17	Mai
-89	J	60	AuÃŸentemperatur	11.5	Â°C	MaxDelta	01-05-2017	Mai
+87	J	60	AuÃŸentemperatur	1.2	Â°C	min	11-05-2017 05:48:31	Mai
+88	J	60	AuÃŸentemperatur	28.4	Â°C	max	18-05-2017 13:19:18	Mai
+89	J	60	AuÃŸentemperatur	20.8	Â°C	MaxDelta	11-05-2017	Mai
 90	J	60	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Mai
 91	J	60	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Mai
 92	J	60	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Mai
-145	J	60	Regenfall	2.0	Anzahl	Regentage	n/a	Mai
+145	J	60	Regenfall	7.0	Anzahl	Regentage	n/a	Mai
 93	J	70	AuÃŸentemperatur	100.0	Â°C	min	none	Juni
 94	J	70	AuÃŸentemperatur	-50.0	Â°C	max	none	Juni
 95	J	70	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juni
@@ -109,9 +109,9 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 134	J	130	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Dezember
 154	J	130	Regenfall	0.0	Anzahl	Regentage	n/a	Dezember
 6	J	200	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	2017
-7	J	200	AuÃŸentemperatur	23.9	Â°C	max	31-03-2017 15:54:01	2017
-33	J	200	AuÃŸentemperatur	18.0	Â°C	MaxDelta	28-03-2017	2017
+7	J	200	AuÃŸentemperatur	28.4	Â°C	max	18-05-2017 13:19:18	2017
+33	J	200	AuÃŸentemperatur	20.8	Â°C	MaxDelta	11-05-2017	2017
 34	J	200	AuÃŸentemperatur	40.0	Anzahl	Frosttage	n/a	2017
 35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
 54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
-143	J	200	Regenfall	52.0	Anzahl	Regentage	n/a	2017
+143	J	200	Regenfall	57.0	Anzahl	Regentage	n/a	2017

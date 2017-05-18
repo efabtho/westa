@@ -1,8 +1,9 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
-# TFN 190311 v4 changes for counting days with rainfall
-# TFN 190226 v3 this module will now to the folling things after being called after midnight
+# TFN 180517 added debug info for logging 'wippensensor' counts (to verify rainfall calc)
+# TFN 190317 v4 changes for counting days with rainfall
+# TFN 190217 v3 this module will now to the folling things after being called after midnight
 #               - setting counters coresponding to flags found in 'day' records
 #               - analyzing yesterdays min/max temp. for calculating 'MaxDelta'
 #               - doing inits for new day / new month / new year records
@@ -30,6 +31,7 @@ from datetime import date, timedelta
 from time import *
 from decimal import *
 
+DEBUG_RAINFALL = True
 DEBUG = False
 TEST  = False
 
@@ -241,6 +243,17 @@ def main():
     db.close()
     
 #    print "ending maintainSQLdb at: ", strftime("%d-%m-%Y %H:%M:%S", localtime())
+  
+    if DEBUG_RAINFALL:  
+      os.system('rrdtool lastupdate /media/pi/HDD/data/weather2.rrd > /home/pi/westa/dev/reports/UserRQ_lastupdate.txt')
+      i = 1
+      fileRd = open("/home/pi/westa/dev/reports/UserRQ_lastupdate.txt","r")
+      for line in fileRd:
+        output = line.rstrip()
+        if i == 3:
+          lastupdate = output
+        i = i+1
+      print "rrd lastupdate @", strftime("%d-%m-%Y %H:%M:%S", localtime()), "is >>", lastupdate
     
   except MySQLdb.Error, e:
     try:
