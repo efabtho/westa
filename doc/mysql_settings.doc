@@ -13,10 +13,10 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	28-05-2017 14:13:27	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	28-05-2017 07:38:08	day
-49	N	0	AuÃŸentemperatur	15.4	Â°C	min	28-05-2017 01:38:13	day
-50	N	0	AuÃŸentemperatur	29.3	Â°C	max	28-05-2017 13:58:41	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	11-06-2017 16:13:23	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	11-06-2017 08:43:21	day
+49	N	0	AuÃŸentemperatur	11.9	Â°C	min	11-06-2017 04:24:12	day
+50	N	0	AuÃŸentemperatur	26.8	Â°C	max	11-06-2017 11:58:52	day
 141	N	0	Regen_Erkannt	0.0	Boolean	Flag	none	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
 2	J	11	AuÃŸentemperatur	29.3	Â°C	max	28-05-2017 13:58:41	all time
@@ -58,14 +58,14 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 90	J	60	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Mai
 91	J	60	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Mai
 92	J	60	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Mai
-145	J	60	Regenfall	10.0	Anzahl	Regentage	n/a	Mai
-93	J	70	AuÃŸentemperatur	100.0	Â°C	min	none	Juni
-94	J	70	AuÃŸentemperatur	-50.0	Â°C	max	none	Juni
-95	J	70	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juni
+145	J	60	Regenfall	12.0	Anzahl	Regentage	n/a	Mai
+93	J	70	AuÃŸentemperatur	7.2	Â°C	min	01-06-2017 05:28:18	Juni
+94	J	70	AuÃŸentemperatur	26.8	Â°C	max	11-06-2017 11:58:52	Juni
+95	J	70	AuÃŸentemperatur	18.0	Â°C	MaxDelta	02-06-2017	Juni
 96	J	70	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Juni
 97	J	70	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Juni
 98	J	70	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Juni
-148	J	70	Regenfall	0.0	Anzahl	Regentage	n/a	Juni
+148	J	70	Regenfall	3.0	Anzahl	Regentage	n/a	Juni
 99	J	80	AuÃŸentemperatur	100.0	Â°C	min	none	Juli
 100	J	80	AuÃŸentemperatur	-50.0	Â°C	max	none	Juli
 101	J	80	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juli
@@ -114,4 +114,4 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 34	J	200	AuÃŸentemperatur	40.0	Anzahl	Frosttage	n/a	2017
 35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
 54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
-143	J	200	Regenfall	60.0	Anzahl	Regentage	n/a	2017
+143	J	200	Regenfall	65.0	Anzahl	Regentage	n/a	2017

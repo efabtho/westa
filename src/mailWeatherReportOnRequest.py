@@ -15,7 +15,7 @@ import ConfigParser
 
 from mailWeatherReport import mailWeatherReport
 
-DEBUG = True
+DEBUG = False
 
 # RPi3 weather station dedicated email account
 config = ConfigParser.ConfigParser()
@@ -43,7 +43,7 @@ try:
     m.login(Username, Password)
 
 except:
-    print "Error occured! Could not login..."
+    print "mailWeatherReportOnRequest: Error occured! Could not login to mail account..."
     quit()
     
 typ, mailbox_data = m.list(Mailbox)
