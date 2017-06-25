@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# v6 TFN 170412 using ConfigParser for login data hiding from source code
-# v5 TFN 170408 now using html based mailWeatherReport() function version (v9)
+# TFN 170625 added time stamp in error trace for better understanding of wlan problem
+# TFN 170412 using ConfigParser for login data hiding from source code
+# TFN 170408 now using html based mailWeatherReport() function version (v9)
 
 import imaplib, os
 import re
@@ -43,7 +44,7 @@ try:
     m.login(Username, Password)
 
 except:
-    print "mailWeatherReportOnRequest: Error occured! Could not login to mail account..."
+    print strftime("%d-%m-%Y %H:%M:%S", localtime()), ": mailWeatherReportOnRequest-Error occured! Could not login to mail account..."
     quit()
     
 typ, mailbox_data = m.list(Mailbox)
