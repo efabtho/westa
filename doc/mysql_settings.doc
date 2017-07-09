@@ -13,11 +13,11 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	25-06-2017 11:48:12	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	25-06-2017 11:48:12	day
-49	N	0	AuÃŸentemperatur	16.4	Â°C	min	25-06-2017 04:28:30	day
-50	N	0	AuÃŸentemperatur	18.8	Â°C	max	25-06-2017 11:33:27	day
-141	N	0	Regen_Erkannt	1.0	Boolean	Flag	25-06-2017 04:38:40	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	09-07-2017 19:58:02	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	09-07-2017 14:04:20	day
+49	N	0	AuÃŸentemperatur	14.0	Â°C	min	09-07-2017 08:34:38	day
+50	N	0	AuÃŸentemperatur	23.3	Â°C	max	09-07-2017 17:09:40	day
+141	N	0	Regen_Erkannt	1.0	Boolean	Flag	09-07-2017 04:48:03	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
 2	J	11	AuÃŸentemperatur	33.8	Â°C	max	22-06-2017 14:28:32	all time
 32	J	12	AuÃŸentemperatur	20.8	Â°C	MaxDelta	11-05-2017	all time
@@ -65,14 +65,14 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 96	J	70	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Juni
 97	J	70	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Juni
 98	J	70	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Juni
-148	J	70	Regenfall	8.0	Anzahl	Regentage	n/a	Juni
-99	J	80	AuÃŸentemperatur	100.0	Â°C	min	none	Juli
-100	J	80	AuÃŸentemperatur	-50.0	Â°C	max	none	Juli
-101	J	80	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Juli
+148	J	70	Regenfall	13.0	Anzahl	Regentage	n/a	Juni
+99	J	80	AuÃŸentemperatur	10.6	Â°C	min	03-07-2017 05:44:10	Juli
+100	J	80	AuÃŸentemperatur	28.2	Â°C	max	07-07-2017 13:08:25	Juli
+101	J	80	AuÃŸentemperatur	12.1	Â°C	MaxDelta	03-07-2017	Juli
 102	J	80	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Juli
 103	J	80	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Juli
 104	J	80	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Juli
-149	J	80	Regenfall	0.0	Anzahl	Regentage	n/a	Juli
+149	J	80	Regenfall	3.0	Anzahl	Regentage	n/a	Juli
 105	J	90	AuÃŸentemperatur	100.0	Â°C	min	none	August
 106	J	90	AuÃŸentemperatur	-50.0	Â°C	max	none	August
 107	J	90	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	August
@@ -114,4 +114,4 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 34	J	200	AuÃŸentemperatur	40.0	Anzahl	Frosttage	n/a	2017
 35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
 54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
-143	J	200	Regenfall	70.0	Anzahl	Regentage	n/a	2017
+143	J	200	Regenfall	78.0	Anzahl	Regentage	n/a	2017

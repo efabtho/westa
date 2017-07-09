@@ -1,8 +1,9 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
-# TFN 291216 v4 Anpasssung an neue Sensorverteilung: Aussen->DG, RPi3 mit BMP180 ->Eltern-Sz
-# TFN 011216 v3 Anpasssung an erweitertes Sensorfeld durch Aufnahme Luftdruck/Temp. vom BMP180
+# TFN 090717 Anpasssung an neuen Sensor im Wohnzimmer
+# TFN 291216 Anpasssung an neue Sensorverteilung: Aussen->DG, RPi3 mit BMP180 ->Eltern-Sz
+# TFN 011216 Anpasssung an erweitertes Sensorfeld durch Aufnahme Luftdruck/Temp. vom BMP180
 
 from __future__ import print_function
 
@@ -53,6 +54,11 @@ def main():
             print(val,"°C", file=fh)
             fh.close()
 
+        if i == 3: # Wohnzimmertemp.
+            fh = open("UserRQ_curTempLivingRoom.txt","w")
+            print(val,"°C", file=fh)
+            fh.close()
+
         if i == 9: # Luftfeuchtigkeit Dachgeschoss
             fh = open("UserRQ_curHumTopFloor.txt","w")
             print(val,"%", file=fh)
@@ -60,6 +66,11 @@ def main():
 
         if i == 10: # Luftfeuchtigkeit Keller
             fh = open("UserRQ_curHumCellar.txt","w")
+            print(val,"%", file=fh)
+            fh.close()
+
+        if i == 11: # Luftfeuchtigkeit Wohnzimmer
+            fh = open("UserRQ_curHumLivingRoom.txt","w")
             print(val,"%", file=fh)
             fh.close()
 
