@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TFN 170710 added new sensor in living room
 # TFN 170506 attached westa.log to mail
 # TFN 170417 adding html file with long term statistics
 # TFN 170413 using ConfigParser for email account data access
@@ -94,6 +95,16 @@ def mailWeatherReport():
     fobj = open("/var/www/html/reports/UserRQ_curHumTopFloor.txt")
     for line in fobj:
         curHumTopFloor =line.rstrip()
+    fobj.close()
+
+    fobj = open("/var/www/html/reports/UserRQ_curTempLivingRoom.txt")
+    for line in fobj:
+        curTempLivingRoom =line.rstrip()
+    fobj.close()
+
+    fobj = open("/var/www/html/reports/UserRQ_curHumLivingRoom.txt")
+    for line in fobj:
+        curHumLivingRoom =line.rstrip()
     fobj.close()
 
     fobj = open("/var/www/html/reports/UserRQ_curTempCellar.txt")
@@ -208,6 +219,14 @@ def mailWeatherReport():
                         <td>' + curHumCellar + '</td>\
                     </tr>\
                 </tbody>\
+                <tr>\
+                    <td>Temperatur Wohnzimmer:</td>\
+                    <td>' + curTempLivingRoom + '</td>\
+                </tr>\
+                <tr>\
+                    <td>Luftfeuchtigkeit Wohnzimmer:</td>\
+                    <td>' + curHumLivingRoom + '</td>\
+                </tr>\
             </table>\
             <br><caption>Außentemperaturverlauf der letzten 24h</caption>\
             <br><img src="cid:image1">\
