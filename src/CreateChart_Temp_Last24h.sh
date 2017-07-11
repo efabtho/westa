@@ -22,6 +22,9 @@ rrdtool graph ../reports/Temp_Last24h.png \
   LINE2:temps10#7FB37C:'Eltern-Sz' \
   DEF:temps9="$RRD_PATH":temps9:AVERAGE \
   LINE2:temps9#616066:'Aussen (Wettermast)' \
-  LINE1:0#C6913B
+  LINE1:30#C6913B \
+  LINE1:20#C6913B \
+  LINE1:10#C6913B \
+  LINE2:0#C6913B
 
 sudo mv ../reports/Temp_Last24h.png /var/www/html/reports/Temp_Last24h.png

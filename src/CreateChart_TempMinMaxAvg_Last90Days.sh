@@ -18,6 +18,10 @@ rrdtool graph ../reports/TempMinMaxAvg_Last90Days.png \
   AREA:tempranges1#8dadf588::STACK \
   LINE1:tempmaxs1#0000FF \
   LINE2:temps9#0000FF:'Aussentemperatur (Min/Durchschnitt/Max)' \
-  LINE1:0#C6913B
+  LINE1:30#C6913B \
+  LINE1:20#C6913B \
+  LINE1:10#C6913B \
+  LINE2:0#C6913B
+
 
 sudo mv ../reports/TempMinMaxAvg_Last90Days.png /var/www/html/reports/TempMinMaxAvg_Last90Days.png

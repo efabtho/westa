@@ -1,6 +1,7 @@
 
 import pyowm
 import json
+import datetime
 
 API_Key       = 'd8e69011a4a1450808fef780c686b3cf'
 owm           = pyowm.OWM(API_Key)
@@ -22,12 +23,23 @@ observation = owm.weather_at_place('Hildesheim, Germany')
 w = observation.get_weather()
 decoded_w = json.loads(w.to_JSON())
 detailed_status = decoded_w['detailed_status']
+
+# sunrise time
+sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+          datetime.timedelta(hours=2)).strftime("%H:%M")     
+ 
+# sunset time
+sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+          datetime.timedelta(hours=2)).strftime("%H:%M")     
  
 #Create String to Print
-strMsg = 'Hildesheim: ' + detailed_status.title() + \
+strMsg = 'Die Wettervorhersage für Hildesheim (von OWM):\n' + detailed_status.title() + \
          ' (weitere Aussichten: ' + detailed_status_later.title() + ') von ' + \
          str(w.get_temperature('celsius')['temp_min']) + '°C bis ' + \
-         str(w.get_temperature('celsius')['temp_max']) + '°C, ' + \
-         str(decoded_w['humidity']) + '% Luftfeuchtigkeit; ' + \
-         str(decoded_w['clouds']) + '% Bewölkung'
+         str(w.get_temperature('celsius')['temp_max']) + '°C; ' + \
+         str(decoded_w['clouds']) + '% Bewölkung; ' + \
+         "Sonnenaufgang um " + str(sunrise) + "h, " + \
+         "Sonnenuntergang um " + str(sunset) + "h"
 print(strMsg)
+
+#         str(decoded_w['humidity']) + '% Luftfeuchtigkeit; ' +
