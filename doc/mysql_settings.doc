@@ -13,8 +13,8 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	12-07-2017 08:08:04	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	12-07-2017 08:08:04	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	12-07-2017 08:13:56	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	12-07-2017 08:13:56	day
 49	N	0	AuÃŸentemperatur	14.7	Â°C	min	12-07-2017 03:00:03	day
 50	N	0	AuÃŸentemperatur	16.3	Â°C	max	12-07-2017 05:23:48	day
 141	N	0	Regen_Erkannt	1.0	Boolean	Flag	12-07-2017 06:38:27	day
