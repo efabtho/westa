@@ -1,3 +1,3 @@
  temps1 temps2 temps3 temps4 temps5 temps6 temps7 temps8 hums1 hums2 hums3 hums4 hums5 hums6 hums7 hums8 temps9 hums9 winds9 rains9 israins9 temps10 psea
 
-1499723890: 24.2 19.3 U U U U U U 62 80 U U U U U U 16.6 95 0.0 1761 0 24.1 1008
+1499810291: 24.4 19.4 22.7 U U U U U 58 73 69 U U U U U 15.8 79 0.0 1761 0 24.0 1012

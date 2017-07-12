@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TFN 170712 applied new order of sensor infos
 # TFN 170710 added new sensor in living room
 # TFN 170506 attached westa.log to mail
 # TFN 170417 adding html file with long term statistics
@@ -197,35 +198,35 @@ def mailWeatherReport():
                 </tr>\
                 <tbody id="zeilengruppe">\
                     <tr>\
-                        <td>Temperatur Eltern-Schlafzimmer:</td>\
-                        <td>' + curTempParBedroom + '</td>\
+                        <td>Temperatur Dachgeschoss:</td>\
+                        <td>' + curTempTopFloor + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td>Luftfeuchtigkeit Dachgeschoss:</td>\
+                        <td>' + curHumTopFloor + '</td>\
                     </tr>\
                 </tbody>\
                 <tr>\
-                    <td>Temperatur Dachgeschoss:</td>\
-                    <td>' + curTempTopFloor + '</td>\
-                </tr>\
-                <tr>\
-                    <td>Luftfeuchtigkeit Dachgeschoss:</td>\
-                    <td>' + curHumTopFloor + '</td>\
+                    <td>Temperatur Eltern-Schlafzimmer:</td>\
+                    <td>' + curTempParBedroom + '</td>\
                 </tr>\
                 <tbody id="zeilengruppe">\
                     <tr>\
-                        <td>Temperatur Keller:</td>\
-                        <td>' + curTempCellar + '</td>\
+                        <td>Temperatur Wohnzimmer:</td>\
+                        <td>' + curTempLivingRoom + '</td>\
                     </tr>\
                     <tr>\
-                        <td>Luftfeuchtigkeit Keller:</td>\
-                        <td>' + curHumCellar + '</td>\
+                        <td>Luftfeuchtigkeit Wohnzimmer:</td>\
+                        <td>' + curHumLivingRoom + '</td>\
                     </tr>\
                 </tbody>\
                 <tr>\
-                    <td>Temperatur Wohnzimmer:</td>\
-                    <td>' + curTempLivingRoom + '</td>\
+                    <td>Temperatur Keller:</td>\
+                    <td>' + curTempCellar + '</td>\
                 </tr>\
                 <tr>\
-                    <td>Luftfeuchtigkeit Wohnzimmer:</td>\
-                    <td>' + curHumLivingRoom + '</td>\
+                    <td>Luftfeuchtigkeit Keller:</td>\
+                    <td>' + curHumCellar + '</td>\
                 </tr>\
             </table>\
             <br><caption>Außentemperaturverlauf der letzten 24h</caption>\
