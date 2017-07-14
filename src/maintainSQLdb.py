@@ -72,6 +72,12 @@ def main():
     db = MySQLdb.connect("localhost", "pi","","temps")
     curs = db.cursor()
 
+    # calc yesterdays rainfall using rrd data
+    # ...
+    
+    # update monthly rainfall data with yesterdays rainfall
+    # ...
+
     # counting days with rain fall
     curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Sensor = %s AND Wert = %s AND Periode = %s", \
       ('Regen_Erkannt','1.0','day',))
@@ -185,6 +191,8 @@ def main():
               ('J', 200, 'Außentemperatur', 0, 'Anzahl', 'Tropische Nächte', 'n/a', curYear))
           curs.execute(sql_update_query_INIT_YEAR, \
               ('J', 200, 'Regenfall', 0, 'Anzahl', 'Regentage', 'n/a', curYear))
+          # set rainfall to zero for new year
+          # ...
           print "***HAPPY NEW YEAR!*** added new year default records to db"
           
       # init month record with defaults to start the new min/max intervall of the new month
@@ -204,7 +212,9 @@ def main():
       curs.execute(sql_update_query_INIT_MONTH, \
           ("0", "n/a", 'Außentemperatur', 'Tropische Nächte', monthArray[curMonth-1]))      
       curs.execute(sql_update_query_INIT_MONTH, \
-          ("0", "n/a", 'Regenfall', 'Regentage', monthArray[curMonth-1]))      
+          ("0", "n/a", 'Regenfall', 'Regentage', monthArray[curMonth-1]))
+      # set rainfall to zero for new month
+      # ...
       print "reinitialized records for new month: ", monthArray[curMonth-1]
 
     # init day records with defaults to start the new measurement intervall of the new day

@@ -1,6 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
+# TFN 140717 added rainfall data to tables
 # TFN 180417 added two different modes to generate html file for mail service or web server usage
 # TFN 130317 extented output by adding yearly summaries
 # TFN 130317 directly generating min-max-values.html because including WeSta_statistic_data.html only worked with Firefox
@@ -18,11 +19,16 @@ from time import *
 
 
 def main():
-  fileName = sys.argv[1]
-  GenMode = sys.argv[2]
-
   DEBUG = False
   TEST  = False
+
+  if DEBUG:
+    fileName = "test.html"
+    GenMode  = "WebModeActiv"
+  else:
+    fileName = sys.argv[1]
+    GenMode = sys.argv[2]
+
   
   monthArray = ['Januar','Februar','März','April','Mai','Juni','Juli', 'August','September','Oktober','November','Dezember']
   curYear    = int(strftime("%Y", localtime()))
@@ -109,7 +115,35 @@ def main():
     print ("    </tr>", file=fh)
     print ("  </tbody>", file=fh)
 
-    # iterate over *secound* row elements
+    # iterate over 2nd row elements
+    print ("  <tr>", file=fh)
+    curMonth = int(strftime("%m", localtime()))
+    s = 0
+    while s <= 12:
+      if DEBUG:
+        print ("Spalte: ", s) 
+      if s == 0:
+        # first column
+        print ("    <td>", file=fh)
+        print ("      Niederschlagsmenge in mm", file=fh)
+        print ("    </td>", file=fh)        
+      else:
+        if DEBUG:
+          print ("Monat: ", monthArray[curMonth-1])
+
+        print ("    <td>", file=fh)       
+        curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Periode = %s AND Type = 'Regenmenge'",(monthArray[curMonth-1],))
+        for reading in curs.fetchall():
+          print ("      ",reading[4], file=fh)
+        print ("    </td>", file=fh)
+        
+        curMonth -= 1
+        if curMonth == 0:
+          curMonth = 12
+      s += 1
+    print ("  </tr>", file=fh)
+
+    # iterate over 3rd row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -137,7 +171,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *third* row elements
+    # iterate over 4th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -165,7 +199,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *forth* row elements
+    # iterate over 5th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -193,7 +227,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *fifth* row elements
+    # iterate over 6th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -221,7 +255,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *sixth* row elements
+    # iterate over 7th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -250,7 +284,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *seventh* row elements
+    # iterate over 8th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -279,7 +313,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *eighth* row elements
+    # iterate over 9th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -353,7 +387,40 @@ def main():
     print ("    </tr>", file=fh)
     print ("  </tbody>", file=fh)
 
-    # iterate over *secound* row elements
+    # iterate over 2nd row elements
+    print ("  <tr>", file=fh)
+    s = 0
+    Year = curYear
+    while s <= (curYear+2-startYear):
+      if DEBUG:
+        print ("Spalte: ", s) 
+      if s == 0:
+        # first column
+        print ("      <td>", file=fh)
+        print ("      Niederschlagsmenge in mm", file=fh)
+        print ("      </td>", file=fh)        
+      else:
+        if s == 1:
+          # secound column (all time)        
+          if DEBUG:
+            print ("Jahr: all time")
+          print ("      <td>", file=fh)
+          print ("      -", file=fh)
+          print ("      </td>", file=fh)          
+        else:
+          if DEBUG:
+            print ("Jahr: ", Year)
+          print ("      <td>", file=fh)
+          curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Periode = %s AND Type = 'Regenmenge'", \
+                       (Year,))
+          for reading in curs.fetchall():
+            print ("      ",reading[4], file=fh)
+          print ("      </td>", file=fh)          
+          Year -= 1    
+      s += 1
+    print ("  </tr>", file=fh)
+
+    # iterate over 3rd row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -386,7 +453,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *third* row elements
+    # iterate over 4th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -419,7 +486,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *third* row elements
+    # iterate over 5th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -452,7 +519,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *forth* row elements
+    # iterate over 6th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -485,7 +552,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *fith* row elements
+    # iterate over 7th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -522,7 +589,7 @@ def main():
     print ("  </tr>", file=fh)
 
 
-    # iterate over *sixth* row elements
+    # iterate over 8th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -558,7 +625,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *seventh* row elements
+    # iterate over 9th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -594,7 +661,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *eighths* row elements
+    # iterate over 10th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -626,7 +693,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *ninth* row elements
+    # iterate over 11th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -658,7 +725,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over *tenth* row elements
+    # iterate over 12th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
