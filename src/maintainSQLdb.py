@@ -72,8 +72,8 @@ def main():
     db = MySQLdb.connect("localhost", "pi","","temps")
     curs = db.cursor()
 
-    # calc yesterdays rainfall using rrd data
-    # ...
+    # calc yesterdays rainfall using rrd data and write result to file
+    subprocess.call(["/home/pi/westa/prod/src/calcDailyRainfallYesterday.sh", "DailyRainfallYesterday.txt"])
     
     # update monthly rainfall data with yesterdays rainfall
     # ...
