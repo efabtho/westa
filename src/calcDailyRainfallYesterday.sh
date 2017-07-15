@@ -1,7 +1,11 @@
+#!/bin/bash
+
 # set path variables
 source /etc/environment
 
-# Regenmenge des letzten Tages berechnen aus den abgespeicherten Wippenschlaegen des Regenmessers in der DB
+# Regenmenge des letzten Tages berechnen aus den abgespeicherten Wippenschlaegen des Regenmessers in der DB.
+# Der Aufruf muss kurz nach Mitternacht erfolgen, da mit einem relativen Zeitfenster gearbeitet wird.
+
 rrdtool graph /dev/null \
   -s 'now'-24h -e 'now' \
   DEF:rains9="$RRD_PATH":rains9:AVERAGE \

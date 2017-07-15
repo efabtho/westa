@@ -1,6 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
+# TFN 150717 added calc of daily rainfall and stored results in sqldb
 # TFN 180517 added debug info for logging 'wippensensor' counts (to verify rainfall calc)
 # TFN 190317 v4 changes for counting days with rainfall
 # TFN 190217 v3 this module will now to the folling things after being called after midnight
@@ -26,6 +27,7 @@
 import sys
 import os
 import MySQLdb
+import subprocess
 
 from datetime import date, timedelta
 from time import *
@@ -40,7 +42,7 @@ monthArray = ['Januar','Februar','März','April','Mai','Juni','Juli', 'August','
 
 def main():
 
-#  print "starting maintainSQLdb at: ", strftime("%d-%m-%Y %H:%M:%S", localtime())
+#  test: print "starting maintainSQLdb at: ", strftime("%d-%m-%Y %H:%M:%S", localtime())
      
   curYear  = strftime("%Y", localtime())
   curMonth = strftime("%m", localtime())
@@ -72,12 +74,32 @@ def main():
     db = MySQLdb.connect("localhost", "pi","","temps")
     curs = db.cursor()
 
-    # calc yesterdays rainfall using rrd data and write result to file
-    subprocess.call(["/home/pi/westa/prod/src/calcDailyRainfallYesterday.sh", "DailyRainfallYesterday.txt"])
-    
-    # update monthly rainfall data with yesterdays rainfall
-    # ...
+    # calc yesterdays rainfall using rrd data and write result to file (PROD //// DEV !!!)
+    subprocess.call(["/home/pi/westa/dev/src/calcDailyRainfallYesterday.sh", "DailyRainfallYesterday.txt"])
 
+    # update monthly/yearly rainfall data with yesterdays rainfall
+    fh = open("/var/www/html/reports/DailyRainfallYesterday.txt","r")
+    for line in fh:
+      RainfallYesterday = Decimal(line.strip())
+      if DEBUG:
+        print "RainfallYesterday = ", RainfallYesterday
+    fh.close()
+    
+    sql_update_query_UPDATE = \
+        "UPDATE tbl_WeSta_values2 SET Wert = Wert + cast(%s as decimal(3,1)) WHERE \
+         Sensor = %s AND Type = %s AND Periode = %s"
+    curs.execute(sql_update_query_UPDATE, \
+        (RainfallYesterday,'Wippenzähler', 'Regenmenge', monthArray[curMonth-1] if curDay != 1 else monthArray[beforeCurMonth-1]))
+    curs.execute(sql_update_query_UPDATE, \
+        (RainfallYesterday,'Wippenzähler', 'Regenmenge', (int(curYear)-1) if (curDay==1 and curMonth==1) else curYear ))
+
+    if DEBUG:
+      db.commit()   
+      db.close()
+      print "db.commit(), db.close() and return (not manipulating other db entries)"
+      return
+
+      
     # counting days with rain fall
     curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Sensor = %s AND Wert = %s AND Periode = %s", \
       ('Regen_Erkannt','1.0','day',))
@@ -166,6 +188,10 @@ def main():
   
     db.commit()
 
+    #
+    # Init records (day/month/year)
+    #
+
     if curDay == 1:
       # we have a new month...
       if curMonth == 1:        
@@ -191,8 +217,8 @@ def main():
               ('J', 200, 'Außentemperatur', 0, 'Anzahl', 'Tropische Nächte', 'n/a', curYear))
           curs.execute(sql_update_query_INIT_YEAR, \
               ('J', 200, 'Regenfall', 0, 'Anzahl', 'Regentage', 'n/a', curYear))
-          # set rainfall to zero for new year
-          # ...
+          curs.execute(sql_update_query_INIT_YEAR, \
+              ('J', 200, 'Wippenzähler', 0, 'mm', 'Regenmenge', 'n/a', curYear))
           print "***HAPPY NEW YEAR!*** added new year default records to db"
           
       # init month record with defaults to start the new min/max intervall of the new month
@@ -213,8 +239,8 @@ def main():
           ("0", "n/a", 'Außentemperatur', 'Tropische Nächte', monthArray[curMonth-1]))      
       curs.execute(sql_update_query_INIT_MONTH, \
           ("0", "n/a", 'Regenfall', 'Regentage', monthArray[curMonth-1]))
-      # set rainfall to zero for new month
-      # ...
+      curs.execute(sql_update_query_INIT_MONTH, \
+          ("0", "n/a", 'Wippenzähler', 'Regenmenge', monthArray[curMonth-1]))
       print "reinitialized records for new month: ", monthArray[curMonth-1]
 
     # init day records with defaults to start the new measurement intervall of the new day
@@ -252,7 +278,7 @@ def main():
 
     db.close()
     
-#    print "ending maintainSQLdb at: ", strftime("%d-%m-%Y %H:%M:%S", localtime())
+#    test: print "ending maintainSQLdb at: ", strftime("%d-%m-%Y %H:%M:%S", localtime())
   
     if DEBUG_RAINFALL:  
       os.system('rrdtool lastupdate /media/pi/HDD/data/weather2.rrd > /home/pi/westa/dev/reports/UserRQ_lastupdate.txt')
