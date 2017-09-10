@@ -1,6 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
+# TFN 100917 disabled debug info for verifing rainfall calc (everything was ok.)
 # TFN 150717 added calc of daily rainfall and stored results in sqldb
 # TFN 180517 added debug info for logging 'wippensensor' counts (to verify rainfall calc)
 # TFN 190317 v4 changes for counting days with rainfall
@@ -33,7 +34,7 @@ from datetime import date, timedelta
 from time import *
 from decimal import *
 
-DEBUG_RAINFALL = True
+DEBUG_RAINFALL = False
 DEBUG = False
 TEST  = False
 
