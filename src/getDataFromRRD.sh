@@ -21,9 +21,6 @@ rrdtool lastupdate $RRD_PATH >> UserRQ_lastupdate.txt
 # Datei UserRQ_lastupdate.txt auswerten und in einzelne txt-Datenschnipsel ausgeben
 python $WESTA_ACTIV_SRC'makeDataFilesFromLastupdate.py'
 
-# for debug...
-pwd >> westa-server.log
-
 # get OWM weather forecast data and write them to txt files (python3 only, see she-bang)
 ./getOWMWeatherForecast.py    >> westa-server.log 2>&1
 
