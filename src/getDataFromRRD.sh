@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# TFN 010517 environment settings and westa.log copied to web server to be shown in debug menu
-# TFN 031216 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
+# TFN 240917 added generation of OWM based informations to txt files
+# TFN 010517 environment settings and westa.log copied to web server to be shown in debug menu# TFN 031216 Anpassung an erweiterte rrd DB Struktur (Luftdruck) und DB Speicherort
 
 # set path variables
 source /etc/environment
@@ -21,8 +21,12 @@ rrdtool lastupdate $RRD_PATH >> UserRQ_lastupdate.txt
 # Datei UserRQ_lastupdate.txt auswerten und in einzelne txt-Datenschnipsel ausgeben
 python $WESTA_ACTIV_SRC'makeDataFilesFromLastupdate.py'
 
-# Datenschnipsel rüberschieben auf Web-Server
-sudo mv ./UserRQ_*.txt /var/www/html/reports/
+# for debug...
+pwd
+
+# get OWM weather forecast data and write them to txt files (python3 only, see she-bang)
+./getOWMWeatherForecast.py
+#.$WESTA_ACTIV_SRC'getOWMWeatherForecast.py'    --> funktioniert nicht....
 
 # Regenmenge der letzten 24h berechnen aus den abgespeicherten Wippenschlaegen des Regenmessers in der DB
 rrdtool graph /dev/null \
@@ -32,4 +36,5 @@ rrdtool graph /dev/null \
   VDEF:totalrain=rainpd,AVERAGE \
   PRINT:totalrain:"%6.0lf mm"|tail -1 > UserRQ_RainLast24h.txt
 
-sudo mv ./UserRQ_RainLast24h.txt /var/www/html/reports/UserRQ_RainLast24h.txt
+# move all generated txt files to web server directory
+sudo mv ./UserRQ_*.txt /var/www/html/reports/
