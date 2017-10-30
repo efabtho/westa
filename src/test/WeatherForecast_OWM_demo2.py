@@ -2,6 +2,7 @@
 import pyowm
 import json
 import datetime
+from time import gmtime
 
 API_Key       = 'd8e69011a4a1450808fef780c686b3cf'
 owm           = pyowm.OWM(API_Key)
@@ -25,12 +26,20 @@ decoded_w = json.loads(w.to_JSON())
 detailed_status = decoded_w['detailed_status']
 
 # sunrise time
-sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
-          datetime.timedelta(hours=2)).strftime("%H:%M")     
- 
+if gmtime()[8] == 0: # 0= keine Sommerzeit aktiv
+    sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+               datetime.timedelta(hours=1)).strftime("%H:%M")     
+else:
+    sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+               datetime.timedelta(hours=2)).strftime("%H:%M")      
+
 # sunset time
-sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
-          datetime.timedelta(hours=2)).strftime("%H:%M")     
+if gmtime()[8] == 0: # 0= keine Sommerzeit aktiv
+    sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+              datetime.timedelta(hours=1)).strftime("%H:%M")     
+else:
+    sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+              datetime.timedelta(hours=2)).strftime("%H:%M")     
  
 #Create String to Print
 strMsg = 'Die Wettervorhersage für Hildesheim (von OWM):\n' + detailed_status.title() + \
@@ -41,5 +50,7 @@ strMsg = 'Die Wettervorhersage für Hildesheim (von OWM):\n' + detailed_status.t
          "Sonnenaufgang um " + str(sunrise) + "h, " + \
          "Sonnenuntergang um " + str(sunset) + "h"
 print(strMsg)
+
+print("Wir haben Sommerzeit:" + str(gmtime()[8]))
 
 #         str(decoded_w['humidity']) + '% Luftfeuchtigkeit; ' +

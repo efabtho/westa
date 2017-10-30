@@ -7,6 +7,7 @@ import pyowm
 import json
 import datetime
 import configparser
+from time import gmtime
 
 DEBUG = False
 
@@ -33,20 +34,30 @@ def getOWMForecast(API_Key, Location):
     detailed_status = decoded_w['detailed_status']
 
     # write sunrise time to txt file
-    sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
-              datetime.timedelta(hours=2)).strftime("%H:%M")    
+    if gmtime()[8] == 0: # 0= keine Sommerzeit aktiv
+        sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+                   datetime.timedelta(hours=1)).strftime("%H:%M")
+    else:
+        sunrise = (datetime.datetime.strptime(w.get_sunrise_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+                   datetime.timedelta(hours=2)).strftime("%H:%M")
+        
     fh = open("UserRQ_SunriseTime.txt","w")
     print(sunrise,"h", file=fh)
     fh.close()
 
     # write sunset time to txt file
-    sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
-              datetime.timedelta(hours=2)).strftime("%H:%M")  
+    if gmtime()[8] == 0: # 0= keine Sommerzeit aktiv
+        sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+                  datetime.timedelta(hours=1)).strftime("%H:%M")
+    else:
+        sunset = (datetime.datetime.strptime(w.get_sunset_time('iso'),"%Y-%m-%d %H:%M:%S+00") + \
+                  datetime.timedelta(hours=2)).strftime("%H:%M")
+        
     fh = open("UserRQ_SunsetTime.txt","w")
     print(sunset,"h", file=fh)
     fh.close()
 
-    # wirte cloud amount to txt file
+    # write cloud amount to txt file
     clouds = str(decoded_w['clouds'])
     fh = open("UserRQ_CloudAmount.txt","w")
     print(clouds, "%", file=fh)
