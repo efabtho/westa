@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TFN 171031 added OWM data to mail body
 # TFN 170712 applied new order of sensor infos
 # TFN 170710 added new sensor in living room
 # TFN 170506 attached westa.log to mail
@@ -118,6 +119,21 @@ def mailWeatherReport():
         curHumCellar =line.rstrip()
     fobj.close()
 
+    fobj = open("/var/www/html/reports/UserRQ_curCloudAmount.txt")
+    for line in fobj:
+        curCloudAmount =line.rstrip()
+    fobj.close()
+
+    fobj = open("/var/www/html/reports/UserRQ_curSunriseTime.txt")
+    for line in fobj:
+        curSunriseTime =line.rstrip()
+    fobj.close()
+
+    fobj = open("/var/www/html/reports/UserRQ_curSunsetTime.txt")
+    for line in fobj:
+        curSunsetTime =line.rstrip()
+    fobj.close()
+
 
     # Create the root message and fill in the from, to, and subject headers
     msgRoot = MIMEMultipart('related')
@@ -227,6 +243,20 @@ def mailWeatherReport():
                 <tr>\
                     <td>Luftfeuchtigkeit Keller:</td>\
                     <td>' + curHumCellar + '</td>\
+                </tr>\
+                <tbody id="zeilengruppe">\
+                    <tr>\
+                        <td>Bewölkung (von OWM):</td>\
+                        <td>' + curCloudAmount + '</td>\
+                    </tr>\
+                </tbody>\
+                <tr>\
+                    <td>Sonnenaufgang (von OWM):</td>\
+                    <td>' + curSunriseTime + '</td>\
+                </tr>\
+                <tr>\
+                    <td>Sonnenuntergang (von OWM):</td>\
+                    <td>' + curSunsetTime + '</td>\
                 </tr>\
             </table>\
             <br><caption>Außentemperaturverlauf der letzten 24h</caption>\
