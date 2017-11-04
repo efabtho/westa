@@ -20,8 +20,9 @@ rrdtool graph ../reports/TempMinMaxAvg_SinceStart.png \
   LINE2:temps9#0000FF:'Aussentemperatur (Min/Durchschnitt/Max)' \
   LINE1:30#C6913B \
   LINE1:20#C6913B \
+  LINE1:25#C9424C:dashes \
   LINE1:10#C6913B \
-  LINE1:-10#C6913B \
-  LINE2:0#C6913B
+  LINE2:0#4797CA \
+  LINE1:-10#C6913B 
 
 sudo mv ../reports/TempMinMaxAvg_SinceStart.png /var/www/html/reports/TempMinMaxAvg_SinceStart.png

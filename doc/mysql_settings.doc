@@ -13,11 +13,11 @@ Messzeitpunkt	text	YES		NULL
 Periode	text	YES		NULL	
 Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 46	N	0	Frost_Erkannt	0.0	Boolean	Flag	none	day
-47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	31-10-2017 13:39:19	day
-48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	31-10-2017 13:39:19	day
-49	N	0	AuÃŸentemperatur	5.7	Â°C	min	31-10-2017 04:09:55	day
-50	N	0	AuÃŸentemperatur	10.2	Â°C	max	31-10-2017 11:39:09	day
-141	N	0	Regen_Erkannt	1.0	Boolean	Flag	31-10-2017 13:08:16	day
+47	N	0	PlusGrade_Erkannt	1.0	Boolean	Flag	04-11-2017 16:38:43	day
+48	N	0	Unter_20grd_Erkannt	1.0	Boolean	Flag	04-11-2017 16:38:43	day
+49	N	0	AuÃŸentemperatur	4.3	Â°C	min	04-11-2017 06:53:24	day
+50	N	0	AuÃŸentemperatur	12.1	Â°C	max	04-11-2017 15:03:11	day
+141	N	0	Regen_Erkannt	0.0	Boolean	Flag	none	day
 1	J	10	AuÃŸentemperatur	-10.4	Â°C	min	06-01-2017 01:00:00	all time
 2	J	11	AuÃŸentemperatur	33.8	Â°C	max	22-06-2017 14:28:32	all time
 32	J	12	AuÃŸentemperatur	20.8	Â°C	MaxDelta	11-05-2017	all time
@@ -102,16 +102,16 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 120	J	110	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	Oktober
 121	J	110	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	Oktober
 122	J	110	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	Oktober
-152	J	110	Regenfall	17.0	Anzahl	Regentage	n/a	Oktober
-165	J	110	WippenzÃ¤hler	80.1	mm	Regenmenge	n/a	Oktober
-123	J	120	AuÃŸentemperatur	100.0	Â°C	min	none	November
-124	J	120	AuÃŸentemperatur	-50.0	Â°C	max	none	November
-125	J	120	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	November
+152	J	110	Regenfall	18.0	Anzahl	Regentage	n/a	Oktober
+165	J	110	WippenzÃ¤hler	80.8	mm	Regenmenge	n/a	Oktober
+123	J	120	AuÃŸentemperatur	4.3	Â°C	min	04-11-2017 06:53:24	November
+124	J	120	AuÃŸentemperatur	13.2	Â°C	max	02-11-2017 12:03:38	November
+125	J	120	AuÃŸentemperatur	6.4	Â°C	MaxDelta	02-11-2017	November
 126	J	120	AuÃŸentemperatur	0.0	Anzahl	Frosttage	n/a	November
 127	J	120	AuÃŸentemperatur	0.0	Anzahl	Dauerfrosttage	n/a	November
 128	J	120	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	November
-153	J	120	Regenfall	0.0	Anzahl	Regentage	n/a	November
-166	J	120	WippenzÃ¤hler	0.0	mm	Regenmenge	n/a	November
+153	J	120	Regenfall	1.0	Anzahl	Regentage	n/a	November
+166	J	120	WippenzÃ¤hler	5.1	mm	Regenmenge	n/a	November
 129	J	130	AuÃŸentemperatur	100.0	Â°C	min	none	Dezember
 130	J	130	AuÃŸentemperatur	-50.0	Â°C	max	none	Dezember
 131	J	130	AuÃŸentemperatur	0.0	Â°C	MaxDelta	none	Dezember
@@ -126,5 +126,5 @@ Id	Visible	DisplayOrder	Sensor	Wert	Einheit	Type	Messzeitpunkt	Periode
 34	J	200	AuÃŸentemperatur	40.0	Anzahl	Frosttage	n/a	2017
 35	J	200	AuÃŸentemperatur	10.0	Anzahl	Dauerfrosttage	n/a	2017
 54	J	200	AuÃŸentemperatur	0.0	Anzahl	Tropische NÃ¤chte	n/a	2017
-143	J	200	Regenfall	139.0	Anzahl	Regentage	n/a	2017
-161	J	200	WippenzÃ¤hler	971.6	mm	Regenmenge	n/a	2017
+143	J	200	Regenfall	141.0	Anzahl	Regentage	n/a	2017
+161	J	200	WippenzÃ¤hler	977.4	mm	Regenmenge	n/a	2017
