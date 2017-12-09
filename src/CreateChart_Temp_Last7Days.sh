@@ -20,11 +20,11 @@ rrdtool graph ../reports/Temp_Last7Days.png \
   LINE2:temps10#7FB37C:'Eltern-Sz' \
   DEF:temps9="$RRD_PATH":temps9:AVERAGE \
   LINE2:temps9#616066:'Aussen (Wettermast)' \
-  LINE1:30#C6913B \
-  LINE1:25#C9424C \
-  LINE1:20#C6913B \
-  LINE1:10#C6913B \
-  LINE2:0#4797CA \
-  LINE1:-10#C6913B 
+  LINE1:30#C6913B:"":dashes=1,8 \
+  LINE1:25#C9424C:"":dashes=2,4 \
+  LINE1:20#C6913B:"":dashes=1,8 \
+  LINE1:10#C6913B:"":dashes=1,8 \
+  LINE2:0#4797CA:"":dashes=2,4 \
+  LINE1:-10#C6913B:"":dashes=1,8 
 
 sudo mv ../reports/Temp_Last7Days.png /var/www/html/reports/Temp_Last7Days.png

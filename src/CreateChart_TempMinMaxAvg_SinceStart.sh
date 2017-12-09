@@ -18,11 +18,11 @@ rrdtool graph ../reports/TempMinMaxAvg_SinceStart.png \
   AREA:tempranges1#8dadf588::STACK \
   LINE1:tempmaxs1#0000FF \
   LINE2:temps9#0000FF:'Aussentemperatur (Min/Durchschnitt/Max)' \
-  LINE1:30#C6913B \
-  LINE1:25#C9424C:dashes \
-  LINE1:20#C6913B \
-  LINE1:10#C6913B \
-  LINE2:0#4797CA \
-  LINE1:-10#C6913B 
+  LINE1:30#C6913B:"":dashes=1,8 \
+  LINE1:25#C9424C:"":dashes=2,4 \
+  LINE1:20#C6913B:"":dashes=1,8 \
+  LINE1:10#C6913B:"":dashes=1,8 \
+  LINE2:0#4797CA:"":dashes=2,4 \
+  LINE1:-10#C6913B:"":dashes=1,8 
 
 sudo mv ../reports/TempMinMaxAvg_SinceStart.png /var/www/html/reports/TempMinMaxAvg_SinceStart.png
