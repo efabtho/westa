@@ -1,6 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
+# TFN 310318 added 'Sommertage' data to tables
 # TFN 140717 added rainfall data to tables
 # TFN 180417 added two different modes to generate html file for mail service or web server usage
 # TFN 130317 extented output by adding yearly summaries
@@ -265,6 +266,34 @@ def main():
       if s == 0:
         # first column
         print ("    <td>", file=fh)
+        print ("      Sommertage (>25°C)", file=fh)
+        print ("    </td>", file=fh)        
+      else:
+        if DEBUG:
+          print ("Monat: ", monthArray[curMonth-1])
+
+        print ("    <td>", file=fh)       
+        curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Periode = %s AND Type = 'Sommertage'",(monthArray[curMonth-1],))
+        for reading in curs.fetchall():
+          print ("      ",int(reading[4]), file=fh)
+        print ("    </td>", file=fh)
+        
+        curMonth -= 1
+        if curMonth == 0:
+          curMonth = 12
+      s += 1
+    print ("  </tr>", file=fh)
+
+    # iterate over 8th row elements
+    print ("  <tr>", file=fh)
+    curMonth = int(strftime("%m", localtime()))
+    s = 0
+    while s <= 12:
+      if DEBUG:
+        print ("Spalte: ", s) 
+      if s == 0:
+        # first column
+        print ("    <td>", file=fh)
         print ("      min. Außentemperatur in °C", file=fh)
         print ("    </td>", file=fh)        
       else:
@@ -284,7 +313,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 8th row elements
+    # iterate over 9th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -313,7 +342,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 9th row elements
+    # iterate over 10th row elements
     print ("  <tr>", file=fh)
     curMonth = int(strftime("%m", localtime()))
     s = 0
@@ -562,6 +591,39 @@ def main():
       if s == 0:
         # first column
         print ("      <td>", file=fh)
+        print ("      Sommertage (>25°C)", file=fh)
+        print ("      </td>", file=fh)        
+      else:
+        if s == 1:
+          # secound column (all time)        
+          if DEBUG:
+            print ("Jahr: all time")
+          print ("      <td>", file=fh)
+          print ("      -", file=fh)
+          print ("      </td>", file=fh)          
+        else:
+          if DEBUG:
+            print ("Jahr: ", Year)
+          print ("      <td>", file=fh)
+          curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Periode = %s AND Sensor = 'Außentemperatur' AND Type = 'Sommertage'", \
+                       (Year,))
+          for reading in curs.fetchall():
+            print ("      ",int(reading[4]), file=fh)
+          print ("      </td>", file=fh)          
+          Year -= 1    
+      s += 1
+    print ("  </tr>", file=fh)
+
+    # iterate over 8th row elements
+    print ("  <tr>", file=fh)
+    s = 0
+    Year = curYear
+    while s <= (curYear+2-startYear):
+      if DEBUG:
+        print ("Spalte: ", s) 
+      if s == 0:
+        # first column
+        print ("      <td>", file=fh)
         print ("      min. Außentemperatur in °C", file=fh)
         print ("      </td>", file=fh)        
       else:
@@ -589,7 +651,7 @@ def main():
     print ("  </tr>", file=fh)
 
 
-    # iterate over 8th row elements
+    # iterate over 9th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -625,7 +687,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 9th row elements
+    # iterate over 10th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -661,7 +723,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 10th row elements
+    # iterate over 11th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -693,7 +755,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 11th row elements
+    # iterate over 12th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear
@@ -725,7 +787,7 @@ def main():
       s += 1
     print ("  </tr>", file=fh)
 
-    # iterate over 12th row elements
+    # iterate over 13th row elements
     print ("  <tr>", file=fh)
     s = 0
     Year = curYear

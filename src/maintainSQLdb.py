@@ -1,6 +1,7 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
+# TFN 310318 added record inits for detecting & counting 'Sommertage'
 # TFN 100917 disabled debug info for verifing rainfall calc (everything was ok.)
 # TFN 150717 added calc of daily rainfall and stored results in sqldb
 # TFN 180517 added debug info for logging 'wippensensor' counts (to verify rainfall calc)
@@ -157,6 +158,20 @@ def main():
       curs.execute(sql_update_query_INCR, \
           ('Außentemperatur', 'Tropische Nächte', (int(curYear)-1) if (curDay==1 and curMonth==1) else curYear ))
 
+    # counting 'Sommertage' 
+    curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Sensor = %s AND Wert = %s AND Periode = %s", \
+      ('Ueber_25grd_Erkannt','1.0','day',))
+    results = curs.fetchall()
+    # if last day was marked as 'Ueber_25grd_Erkannt' then increment 'Sommertage'
+    if len(results) == 1:
+      sql_update_query_INCR = \
+          "UPDATE tbl_WeSta_values2 SET Wert = Wert + 1 WHERE \
+           Sensor = %s AND Type = %s AND Periode = %s"
+      curs.execute(sql_update_query_INCR, \
+          ('Außentemperatur', 'Sommertage', monthArray[curMonth-1] if curDay != 1 else monthArray[beforeCurMonth-1]))
+      curs.execute(sql_update_query_INCR, \
+          ('Außentemperatur', 'Sommertage', (int(curYear)-1) if (curDay==1 and curMonth==1) else curYear ))
+
     # calculating maximum temperature diff of last day
     curs.execute("SELECT * FROM tbl_WeSta_values2 WHERE Sensor = %s AND Type = %s AND Periode = %s", \
       ('Außentemperatur', 'min', 'day',))
@@ -217,6 +232,8 @@ def main():
           curs.execute(sql_update_query_INIT_YEAR, \
               ('J', 200, 'Außentemperatur', 0, 'Anzahl', 'Tropische Nächte', 'n/a', curYear))
           curs.execute(sql_update_query_INIT_YEAR, \
+              ('J', 200, 'Außentemperatur', 0, 'Anzahl', 'Sommertage', 'n/a', curYear))
+          curs.execute(sql_update_query_INIT_YEAR, \
               ('J', 200, 'Regenfall', 0, 'Anzahl', 'Regentage', 'n/a', curYear))
           curs.execute(sql_update_query_INIT_YEAR, \
               ('J', 200, 'Wippenzähler', 0, 'mm', 'Regenmenge', 'n/a', curYear))
@@ -239,6 +256,8 @@ def main():
       curs.execute(sql_update_query_INIT_MONTH, \
           ("0", "n/a", 'Außentemperatur', 'Tropische Nächte', monthArray[curMonth-1]))      
       curs.execute(sql_update_query_INIT_MONTH, \
+          ("0", "n/a", 'Außentemperatur', 'Sommertage', monthArray[curMonth-1]))      
+      curs.execute(sql_update_query_INIT_MONTH, \
           ("0", "n/a", 'Regenfall', 'Regentage', monthArray[curMonth-1]))
       curs.execute(sql_update_query_INIT_MONTH, \
           ("0", "n/a", 'Wippenzähler', 'Regenmenge', monthArray[curMonth-1]))
@@ -258,6 +277,8 @@ def main():
         ("0", "none", 'PlusGrade_Erkannt', 'Flag', 'day'))
     curs.execute(sql_update_query_INIT_DAY, \
         ("0", "none", 'Unter_20grd_Erkannt', 'Flag', 'day'))
+    curs.execute(sql_update_query_INIT_DAY, \
+        ("0", "none", 'Ueber_25grd_Erkannt', 'Flag', 'day'))
     curs.execute(sql_update_query_INIT_DAY, \
         ("0", "none", 'Regen_Erkannt', 'Flag', 'day'))
     if DEBUG:

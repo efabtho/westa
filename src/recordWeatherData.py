@@ -1,7 +1,8 @@
 #!/usr/bin/python -u
 # -*- coding: utf-8 -*-
 
-# TFN 120412 v15 using ConfigParser to get path to rrd database
+# TFN 310318 added detection of 'Sommertage'
+# TFN 120417 v15 using ConfigParser to get path to rrd database
 # TFN 120317 v14 added counting for 'Regentage'
 # TFN 260217 v13 extended module for some new statistic features ('Frosttage', 'Dauerfrosttage', 'Tropische Nächte', 'MaxDelta')
 # TFN 220117 v12 substituted hard coded year, month info for db update
@@ -115,6 +116,11 @@ def checkMySQLdbUpdate(curTime, curTempOutside, curPsea, curWindSpeed, isRaining
     if curTempOutside < 20:
       curs.execute(sql_update_query_SETFLAG, \
         (1, curTime, 'Unter_20grd_Erkannt', 'Flag', 'day'))
+
+    # check for "Ueber_25grd_Erkannt" to count for "summer days"
+    if curTempOutside > 25:
+      curs.execute(sql_update_query_SETFLAG, \
+        (1, curTime, 'Ueber_25grd_Erkannt', 'Flag', 'day'))
 
     # check for "Regen_Erkannt" to count for days with rain fall
     if isRaining:
